@@ -1,0 +1,15 @@
+[user]
+	name=yangmu
+	email=Azureym@gmail.com
+[color]
+	ui=auto
+	branch=auto
+	status=auto
+[alias]
+	st=status
+	di=diff
+	ci=commit
+	co=checkout
+	br=branch
+[core]
+	ignorecase=false
