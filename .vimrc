@@ -34,10 +34,16 @@ set guifont=Consolas:h12
 " 设置vim的主题颜色
 colorscheme darkblue
 
+"==========================
 " NERDTree 配置项目
+"==========================
+" 定义F3快捷键，使其打开或隐藏NERDTree
 map <F3> :NERDTreeMirror<CR>
 map <F3> :NERDTreeToggle<CR>
+" 默认在目录树中显示隐藏文件
 let NERDTreeShowHidden=1
+" 在vim启动的时候默认开启NERDTree（autocmd 可以缩写为 au）
+" autocmd VimEnter * NERDTree
 
 " 自动联想功能映射类似于Eclipse中的自动代码联想
 " map <A-/> <C-n>
@@ -45,5 +51,7 @@ let NERDTreeShowHidden=1
 " 在当前行的任何一行使用<Alt> + / 在当前行的下一行新加入一行。 类似于Eclipse中的<Alt> + /
 " map <S-CR> <Esc>o
 
+"==========================
 " 管理插件的插件pathogen配置
+"==========================
 call pathogen#infect()
