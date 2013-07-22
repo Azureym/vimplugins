@@ -13,3 +13,4 @@
 	br=branch
 [core]
 	ignorecase=false
+	editor=vim
