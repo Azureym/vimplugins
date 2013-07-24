@@ -1,23 +1,59 @@
-Fix some bug by othree.
+Vim 有一个用于编辑 XML 文档的插件 xml.vim 非常好用，下载地址是：
 
-This is a mirror of http://www.vim.org/scripts/script.php?script_id=1397
+http://www.vim.org/scripts/script.php?script_id=1397
+这个插件的安装很简单，将下载的 xml.vim 文件复制到 ~/.vim/ftplugin 目录下，并在该目录下分别建立连接 docbk.vim、xsl.vim、html.vim、xhtml.vim，让它们皆指向 xml.vim。然后重新启动 vim 即可。
 
-A plugin for editing xml. I used xml.vim (http://www.vim.org/scripts/script.php?script_id=301)
-The script does retain most of the functionality of the original xml.vim 
- - closing tags while you type
- - optional adding attributes
- - and more
- - % matches end or begin tag
-it adds:
- - fold tags, comments and Cdata 
- - add start tag
- - add end tags
- - add  tag around a visual blok or a tag,
- - join 2 adjacent same tags
- - delete tag
- - delete tag section
- - change a tag 
- - visual mode  (blocks, listitems
-The documentation will be created once the script is loaded e.g edit a xml file.
-Read the help documentation by typing from within vim  :help xml-plugin
+如果你使用的是 gvim，且所编辑的文档的扩展名是 ".xml"，那么菜单栏会有一个 “xml” 菜单，对那些不愿意输入命令的用户可能会有用。
 
+下面介绍一下 xml.vim 的几个常用功能。
+
+标记的自动闭合
+
+输入前一半标记，会自动添加后一半标记，并把光标放置在标记中间。
+
+譬如，输入：
+
+<para>
+vim.xml 会将其闭合为：
+
+<para>|</para>
+注：上面代码中出现的 “|” 符号，这里用来表示 vim 中的插入光标。
+
+标记换行＋闭合
+
+在输入标记的前一半后，再输入一个 > 符号，会进行换行：标记的前半部分与后半部分各占一行；标记行的中间有一空行，显示插入光标。
+
+譬如，输入：
+
+<para>>
+xml.vim 会将其处理为：
+
+<para>
+    |
+</para>
+标记的快速输入
+
+直接输入标记名后面跟随两个分号，即可实现标记的换行＋闭合。
+
+譬如，输入：
+
+para;;
+可以得到：
+
+<para>
+    |
+</para>
+快速修改标记名
+
+将光标移动到要修改的标记上，在 normal 模式下输入 \c ，这时：如果你用的是 gvim，就会跳出一个对话框，在其文本框中输入新的标记名即可；如果你是在终端中使用 vim，只需要 vim 下面的命令窗口中输入新的标记名即可。
+
+在标记上跳跃
+
+将光标移动到某一标记名上，然后在 normal 模式下摁 % 键，光标就可以在标记的前半部分与后半部分来回跳转。如果当前光标是在标记的括号上，那么它就像 vim 往常那样，在括号的前半部分与后半部分来回跳跃了。
+
+更详细地用法
+
+xml.vim 的详细用法请参考其说明文档，在 vim 的 normal 模式下，输入：
+
+:h xml-plugin
+即可打开说明文档。
