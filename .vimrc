@@ -16,6 +16,9 @@ set ignorecase
 " 设置一个tab对应4个空格
 set tabstop=4
 
+" 设置缩进的空格数
+set shiftwidth=4
+
 " 在按退格键时，如果前面有4个空格， 则会统一清除
 set softtabstop=4
 
